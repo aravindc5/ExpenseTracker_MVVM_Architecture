@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg4"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddExpense">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintVertical_bias="0.46"
+            app:boxStrokeColor="#2EA613"
+           >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nextFocusDown="@id/amount_input"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+
+                android:hint="Expense Name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amount_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_input_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#2EA613"
+
+            app:layout_constraintVertical_bias="0.041">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amount_input"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Amount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_input_text"
+                android:nextFocusDown="@id/description_input"
+                android:imeOptions="actionNext"
+                android:singleLine="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/desc_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#2EA613"
+
+            app:layout_constraintTop_toBottomOf="@+id/amount_input_text"
+            app:layout_constraintVertical_bias="0.041">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/description_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:nextFocusDown="@id/categoryChipGroup"
+                app:layout_constraintTop_toBottomOf="@+id/amount_input_text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:background="@drawable/rounded_button"
+            android:padding="10dp"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desc_input_text"
+            app:layout_constraintVertical_bias="0.118" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:textColor="#CD09910B"
+            app:backgroundTint="#FDFBFB"
+            app:layout_constraintBottom_toTopOf="@+id/name_input_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.621"
+            app:layout_constraintStart_toEndOf="@+id/titleID"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.975"
+            app:strokeColor="#2EA613" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/selectDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/categoryChipGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.929"
+            app:layout_constraintStart_toEndOf="@+id/date_input"
+            app:layout_constraintTop_toBottomOf="@+id/desc_input_text"
+            app:layout_constraintVertical_bias="0.487" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Expense"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.013"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.36" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/categoryChipGroup"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="330dp"
+            android:layout_height="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_input"
+            app:layout_constraintVertical_bias="0.315"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Food"
+                style="@style/CategoryChipStyle"
+                android:text="Food"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@color/chip_bg_states"
+                app:chipIcon="@drawable/ic_food"
+                app:chipIconVisible="true"
+                tools:textColor="@android:color/white" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Travel"
+                style="@style/CategoryChipStyle"
+                android:text="Travel"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@color/chip_bg_states"
+                app:chipIcon="@drawable/ic_travel"
+                app:chipIconVisible="true"
+                tools:textColor="@android:color/white" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Utilities"
+                style="@style/CategoryChipStyle"
+                android:text="Utilities"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@color/chip_bg_states"
+                app:chipIcon="@drawable/ic_utility"
+                app:chipIconVisible="true"
+                tools:textColor="@android:color/white" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Health"
+                style="@style/CategoryChipStyle"
+                android:text="Health"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@color/chip_bg_states"
+                app:chipIcon="@drawable/ic_health"
+                app:chipIconVisible="true"
+                tools:textColor="@android:color/white" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Shopping"
+                style="@style/CategoryChipStyle"
+                android:text="Shopping"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@color/chip_bg_states"
+                app:chipIcon="@drawable/ic_shop"
+                app:chipIconVisible="true"
+                tools:textColor="@android:color/white" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Others"
+                style="@style/CategoryChipStyle"
+                android:text="Others"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@color/chip_bg_states"
+                app:chipIcon="@drawable/ic_others"
+                app:chipIconVisible="true"
+                tools:textColor="@android:color/white" />
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
